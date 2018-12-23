@@ -33,7 +33,7 @@ public final class Pair<F, S> {
 
 	/**
 	 * Gets the second element in the pair
-	 * @return the right element
+	 * @return the second element
 	 */
 	public S getSecond() {
 		return second;

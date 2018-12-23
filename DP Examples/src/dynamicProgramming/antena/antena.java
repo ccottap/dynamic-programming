@@ -7,11 +7,14 @@ package dynamicProgramming.antena;
  *
  */
 public class antena {
-
+	/**
+	 * Main function solving a problem instance
+	 * @param args antenna height (optional)
+	 */
 	public static void main(String[] args) {
 		int[] peso = {2, 3, 5, 7, 11};
 		int[] altura = {7, 15, 23, 29, 31}; // bloques ordenados por altura
-		int M = 51;
+		int M = (args.length==0)?51:Integer.parseInt(args[0]);
 		int n = peso.length;
 		
 		System.out.println(n + " tipos de bloques");

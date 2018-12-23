@@ -14,7 +14,8 @@ import java.util.HashSet;
 public class gasolinera {
 
 	/**
-	 * @param args
+	 * Main function solving a problem instance
+	 * @param args tank capacity (optional)
 	 */
 	public static void main(String[] args) {
 		//                  g0   g1   g2   g3   g4   g5   g6   g7   g8   g9
