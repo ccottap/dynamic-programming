@@ -15,6 +15,7 @@ public class KnapsackDP {
 
 
 	/**
+	 * Main method
 	 * @param args command-line parameters
 	 * @throws IOException if an attempt is made to read/write data to a file that cannot be opened
 	 */

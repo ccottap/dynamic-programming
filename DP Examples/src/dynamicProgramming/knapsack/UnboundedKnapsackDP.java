@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class UnboundedKnapsackDP {
 	/**
+	 * Main function
 	 * @param args command-line parameters
 	 * @throws IOException if an attempt is made to read/write data to a file that cannot be opened
 	 */
@@ -71,12 +72,20 @@ public class UnboundedKnapsackDP {
 		}
 
 	}
-
+	
+	/**
+	 * Bottom-up resolution of an unbounded knapsack problem instance
+	 * @param ukp the problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> OptimizeKnapsack(Knapsack ukp) {
 		int W = ukp.getW();
 		int n = ukp.getNum();
 		int[] V = new int[W+1];
 		int[] D = new int[W+1]; 
+		
+		// V[w] = optimal value of a knapsack of capacity w
+		// D[w] = object to pick when the capacity is w
 		
 		V[0] = 0;
 		D[0] = -1;
@@ -116,7 +125,13 @@ public class UnboundedKnapsackDP {
 		return ReconstructSolution(D, ukp);
 	}
 	
-	
+	/**
+	 * Reconstructs the optimal solution given the decision table (a vector)
+	 * @param D the decision table computed by the OptimizeKnapsack function
+	 * @param ukp the problem instance
+	 * @return a list with the number of copies of each object
+	 * @see OptimizeKnapsack
+	 */
 	private static List<Integer> ReconstructSolution (int[] D, Knapsack ukp) {
 		int W = ukp.getW();
 		int n = ukp.getNum();
@@ -137,7 +152,12 @@ public class UnboundedKnapsackDP {
 	
 	
 	
-	
+	/**
+	 * Wrapper method for the top-down resolution of an unbounded knapsack problem instance
+	 * @param ukp the problem instance
+	 * @return a list with the number of copies of each object
+	 * @see OptimizeKnapsackTopDownRec
+	 */
 	private static List<Integer> OptimizeKnapsackTopDown(Knapsack ukp) {
 		int W = ukp.getW();
 		HashMap<Integer,Integer> V = new HashMap<Integer,Integer>();
@@ -160,6 +180,13 @@ public class UnboundedKnapsackDP {
 		return ReconstructSolution(D, ukp);
 	}
 
+	/**
+	 * Reconstructs the optimal solution given the decision table (a hash map)
+	 * @param D the decision table computed by the OptimizeKnapsackTopDown function
+	 * @param ukp the problem instance
+	 * @return a list with the number of copies of each object
+	 * @see OptimizeKnapsackTopDown
+	 */
 	private static List<Integer> ReconstructSolution(HashMap<Integer, Integer> D, Knapsack ukp) {
 		int W = ukp.getW();
 		int n = ukp.getNum();
@@ -179,6 +206,16 @@ public class UnboundedKnapsackDP {
 		return sol;
 	}
 
+	
+	/**
+	 * Top-down resolution of an unbounded knapsack problem instance
+	 * @param ukp the problem instance
+	 * @param W the capacity of the knapsack
+	 * @param V the table of values
+	 * @param D the table of decisions
+	 * @return the optimal value
+	 * @see OptimizeKnapsackTopDown
+	 */
 	private static int OptimizeKnapsackTopDownRec(Knapsack ukp, int W,
 			HashMap<Integer, Integer> V, HashMap<Integer, Integer> D) {
 		

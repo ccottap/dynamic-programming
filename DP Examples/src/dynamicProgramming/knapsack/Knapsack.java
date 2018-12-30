@@ -42,6 +42,9 @@ public class Knapsack {
 	
 	static final int MAX_VAL = 100;
 	static final int MAX_WEIGHT = 100;
+	/**
+	 * Randomizes the values and weights of the objects in the knapsack
+	 */
 	protected void randomize() {
 		W = 0;
 		
@@ -57,7 +60,7 @@ public class Knapsack {
 
 	/**
 	 * Reads a knapsack problem instance from a file
-	 * @param filename is the name of the file
+	 * @param filename the name of the file
 	 * @throws FileNotFoundException if the file is not found
 	 */
 	public Knapsack(String filename) throws FileNotFoundException
@@ -140,8 +143,9 @@ public class Knapsack {
 	}
 
 	/**
+	 * Sets the value of an object
 	 * @param i the index of an object
-	 * @param values the value to set
+	 * @param v the value to set
 	 */
 	public void setValues(int i, int v) {
 		values[i] = v;
@@ -198,8 +202,8 @@ public class Knapsack {
 	 
 	 
 	/**
-	 * Returns a printable string representation of the graph
-	 * @return a string representing the graph
+	 * Returns a printable string representation of the knapsack
+	 * @return a string representing the knapsack
 	 */
 	public String toString()
 	{

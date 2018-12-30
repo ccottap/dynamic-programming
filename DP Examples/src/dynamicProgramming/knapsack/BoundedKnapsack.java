@@ -22,15 +22,16 @@ public class BoundedKnapsack extends Knapsack {
 
 	/**
 	 * Creates a bounded knapsack problem instance of a certain size.
-	 * @param n
+	 * @param n the number of objects
 	 */
 	public BoundedKnapsack(int n) {
 		super(n);
 	}
 
 	/**
-	 * @param filename
-	 * @throws FileNotFoundException
+	 * Creates a problem instance reading data from a file
+	 * @param filename the name of the file
+	 * @throws FileNotFoundException if the file cannot be read
 	 */
 	public BoundedKnapsack(String filename) throws FileNotFoundException {
 		Scanner inputFile = new Scanner (new File(filename));
@@ -48,6 +49,10 @@ public class BoundedKnapsack extends Knapsack {
 	}
 	
 	static final int MAX_COPIES = 10;
+	/**
+	 * {@inheritDoc}
+	 * Also randomizes the number of copies of the objects in the knapsack.
+	 */
 	protected void randomize() {
 		super.randomize();
 		W = 0;
@@ -105,8 +110,7 @@ public class BoundedKnapsack extends Knapsack {
 	}
 
 	/**
-	 * Returns a printable string representation of the graph
-	 * @return a string representing the graph
+	 * {@inheritDoc}
 	 */
 	public String toString()
 	{
