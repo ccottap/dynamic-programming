@@ -18,6 +18,7 @@ public class BoundedKnapsackDP {
 
 
 	/**
+	 * Main method
 	 * @param args command-line parameters
 	 * @throws IOException if an attempt is made to read/write data to a file that cannot be opened
 	 */
@@ -75,17 +76,27 @@ public class BoundedKnapsackDP {
 
 	}
 
+	/**
+	 * Bottom-up optimization the bounded knapsack problem instance provided
+	 * @param bkp a bounded knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> OptimizeKnapsack(BoundedKnapsack bkp) {
 		int W = bkp.getW();
 		int n = bkp.getNum();
 		int[][] V = new int[n+1][W+1];
 		int[][] D = new int[n+1][W+1];
 		
+		// V[i][j] = maximum value using objects of class 1..i
+		// and knapsack capacity j
+		// D[i][j] = number of copies of object i when the knapsack
+		// has capacity j
+		
 		for (int j=0; j<=W; j++) 
-			V[0][j] = 0;
+			V[0][j] = 0;					// no objects -> no value
 		
 		for (int i=1; i<=n; i++) {
-			V[i][0] = 0;
+			V[i][0] = 0;					// no capacity -> no value
 			D[i][0] = 0;
 		}
 		
@@ -95,7 +106,7 @@ public class BoundedKnapsackDP {
 			int c = bkp.getCopies(i-1);
 			for (int j=1; j<=W; j++) {
 				V[i][j] = -1;
-				int mc = Math.min(c, j/w);
+				int mc = Math.min(c, j/w); // maximum number of copies of object i that can be used
 				for (int k=0; k<=mc; k++) {
 					int q = k*v + V[i-1][j-k*w];
 					if (q>V[i][j]) {
@@ -126,7 +137,12 @@ public class BoundedKnapsackDP {
 		return ReconstructSolution(D, bkp);
 	}
 	
-	
+	/**
+	 * Reconstructs the solution given the decision matrix
+	 * @param D the decision matrix computed by the optimization method
+	 * @param bkp the bounded knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> ReconstructSolution (int[][] D, BoundedKnapsack bkp) {
 		int W = bkp.getW();
 		int n = bkp.getNum();
@@ -141,14 +157,19 @@ public class BoundedKnapsackDP {
 		
 	}
 	
-	
-	private static List<Integer> OptimizeKnapsackTopDown(BoundedKnapsack kp) {
-		int W = kp.getW();
-		int n = kp.getNum();
+	/**
+	 * Wrapper function for the top-down optimization the bounded 
+	 * knapsack problem instance provided
+	 * @param bkp a bounded knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
+	private static List<Integer> OptimizeKnapsackTopDown(BoundedKnapsack bkp) {
+		int W = bkp.getW();
+		int n = bkp.getNum();
 		HashMap<Pair<Integer,Integer>,Integer> V = new HashMap<Pair<Integer,Integer>,Integer>();
 		HashMap<Pair<Integer,Integer>,Integer> D = new HashMap<Pair<Integer,Integer>,Integer>();
 		
-		OptimizeKnapsackTopDownRec(kp, n, W, V, D);
+		OptimizeKnapsackTopDownRec(bkp, n, W, V, D);
 		
 		System.out.println("\nMatriz de costes/decisión:");
 
@@ -163,14 +184,23 @@ public class BoundedKnapsackDP {
 		System.out.print("\n\nTamaño de la tabla = " + V.size());
 		System.out.format(" (%3.2f%%)\n", (double)V.size()*100.0/(double)((n+1)*(W+1)));
 	
-		return ReconstructSolution(D, kp);
+		return ReconstructSolution(D, bkp);
 		
 	}
 
 
-
+	/**
+	 * Top-down optimization the bounded knapsack problem instance provided
+	 * @param bkp a bounded knapsack problem instance
+	 * @param n objects 1..n can be used
+	 * @param W capacity of the knapsack
+	 * @param V the memory of objective values for previously computed subproblems
+	 * @param D the memory of optimal decisions for previously computed subproblems
+	 * @return a list with the number of copies of each object
+	 */
 	private static int OptimizeKnapsackTopDownRec(BoundedKnapsack bkp, int n, int W,
-			HashMap<Pair<Integer, Integer>, Integer> V, HashMap<Pair<Integer, Integer>, Integer> D) 
+			HashMap<Pair<Integer, Integer>, Integer> V, 
+			HashMap<Pair<Integer, Integer>, Integer> D) 
 	{
 		Pair<Integer, Integer> p = new Pair<Integer,Integer>(n,W);
 
@@ -201,7 +231,13 @@ public class BoundedKnapsackDP {
 		return V.get(p);
 	}
 
-	
+	/**
+	 * Reconstructs the solution given the decision matrix (in sparse form
+	 * as a HashMap)
+	 * @param D the decision matrix
+	 * @param bkp a bounded knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> ReconstructSolution(HashMap<Pair<Integer, Integer>, Integer> D, 
 													 BoundedKnapsack bkp) {
 	

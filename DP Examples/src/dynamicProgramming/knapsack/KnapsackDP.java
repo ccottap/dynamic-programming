@@ -73,17 +73,25 @@ public class KnapsackDP {
 
 	}
 
+	/**
+	 * Bottom-up optimization the bounded knapsack problem instance provided
+	 * @param kp a 0-1 knapsack problem
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> OptimizeKnapsack(Knapsack kp) {
 		int W = kp.getW();
 		int n = kp.getNum();
 		int[][] V = new int[n+1][W+1];
 		
+		// V[i][j] = maximum value using objects 1..i
+		// and knapsack capacity j
+
 		for (int j=0; j<=W; j++) 
-			V[0][j] = 0;
+			V[0][j] = 0;				// no objects -> no value
 
 		
 		for (int i=1; i<=n; i++) 
-			V[i][0] = 0;
+			V[i][0] = 0;				// no capacity -> no value
 		
 		for (int i=1; i<=n; i++) {
 			int w = kp.getWeight(i-1);
@@ -116,7 +124,12 @@ public class KnapsackDP {
 		return ReconstructSolution(V, kp);
 	}
 	
-	
+	/**
+	 * Reconstructs the solution given the matrix of values computed
+	 * @param V the matrix of values computed by the optimization method
+	 * @param kp the 0-1 knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> ReconstructSolution (int[][] V, Knapsack kp) {
 		int W = kp.getW();
 		int n = kp.getNum();
@@ -136,7 +149,12 @@ public class KnapsackDP {
 		
 	}
 	
-	
+	/**
+	 * Wrapper function for the top-down optimization the 0-1 
+	 * knapsack problem instance provided
+	 * @param kp a knapsack problem instance
+	 * @return a list with the number of copies of each object
+	 */
 	private static List<Integer> OptimizeKnapsackTopDown(Knapsack kp) {
 		int W = kp.getW();
 		int n = kp.getNum();
@@ -174,6 +192,14 @@ public class KnapsackDP {
 		
 	}
 
+	/**
+	 * Top-down optimization the 0-1 knapsack problem instance provided
+	 * @param kp a knapsack problem instance
+	 * @param n objects 1..n can be used
+	 * @param W the capacity of the knapsack
+	 * @param V the matrix of values computed for previous subproblems
+	 * @return a list with the number of copies of each object
+	 */
 	private static int OptimizeKnapsackTopDownRec(Knapsack kp, int n, int W, int[][] V) {
 		
 		if (V[n][W] < 0) {

@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package dynamicProgramming.knapsack;
 
 import java.io.File;
@@ -11,17 +9,21 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
+ * Bounded knapsack problem: extends the basic knapsack problem by
+ * considering that a number of copies of each object (c_i for the i-th
+ * object) are available. 
  * @author ccottap
- *
+ * @see Knapsack
  */
 public class BoundedKnapsack extends Knapsack {
-
-	int[] copies;		// number of copies of each object
-	
-	
-
 	/**
-	 * Creates a bounded knapsack problem instance of a certain size.
+	 * number of copies of each object
+	 */
+	int[] copies;		
+	
+	/**
+	 * Creates a bounded knapsack problem instance of a certain size
+	 * (values are initialized at random).
 	 * @param n the number of objects
 	 */
 	public BoundedKnapsack(int n) {
@@ -48,9 +50,12 @@ public class BoundedKnapsack extends Knapsack {
 		inputFile.close();
 	}
 	
-	static final int MAX_COPIES = 10;
 	/**
-	 * {@inheritDoc}
+	 * Maximum number of copies of each object when initializing at random.
+	 */
+	private static final int MAX_COPIES = 10;
+	/**
+	 * {@inheritDoc}. 
 	 * Also randomizes the number of copies of the objects in the knapsack.
 	 */
 	protected void randomize() {
@@ -66,8 +71,9 @@ public class BoundedKnapsack extends Knapsack {
 	}
 	
 	/**
-	 * Sets the number of objects
+	 * {@inheritDoc}. Also allocates memory for the copies.
 	 * @param num the number of objects to set
+	 * {@link BoundedKnapsack#copies}
 	 */
 	public void setNum(int num) {
 		super.setNum(num);
@@ -78,6 +84,7 @@ public class BoundedKnapsack extends Knapsack {
 	 * Returns the number of copies of an object
 	 * @param i the index of the object
 	 * @return the copies of object i
+	 * {@link BoundedKnapsack#copies}
 	 */
 	public int getCopies(int i) {
 		return copies[i];
@@ -87,6 +94,7 @@ public class BoundedKnapsack extends Knapsack {
 	 * Sets the number of copies of an object
 	 * @param i the index of the object
 	 * @param c the number of copies
+	 * {@link BoundedKnapsack#copies}
 	 */
 	public void setCopies(int i, int c) {
 		copies[i] = c;
