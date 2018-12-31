@@ -14,6 +14,9 @@ import java.util.Scanner;
  */
 public class SupersequenceDP {
 
+	/**
+	 * class-level random generator
+	 */
 	static Random r = new Random(1);
 
 	/**
