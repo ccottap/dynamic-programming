@@ -19,7 +19,7 @@ public class BoundedKnapsack extends Knapsack {
 	/**
 	 * number of copies of each object
 	 */
-	int[] copies;		
+	protected int[] copies;		
 	
 	/**
 	 * Creates a bounded knapsack problem instance of a certain size
