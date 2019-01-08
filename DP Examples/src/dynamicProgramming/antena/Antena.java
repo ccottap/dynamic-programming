@@ -8,7 +8,7 @@ package dynamicProgramming.antena;
  * @author ccottap
  *
  */
-public class antena {
+public class Antena {
 	/**
 	 * Main function solving a problem instance
 	 * @param args antenna height (optional)

@@ -11,7 +11,7 @@ import java.util.HashSet;
  * @author ccottap
  *
  */
-public class gasolinera {
+public class Gasolinera {
 
 	/**
 	 * Main function solving a problem instance
