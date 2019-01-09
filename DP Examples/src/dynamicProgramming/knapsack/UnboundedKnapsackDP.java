@@ -78,7 +78,7 @@ public class UnboundedKnapsackDP {
 	 * @param ukp the problem instance
 	 * @return a list with the number of copies of each object
 	 */
-	private static List<Integer> OptimizeKnapsack(Knapsack ukp) {
+	public static List<Integer> OptimizeKnapsack(Knapsack ukp) {
 		int W = ukp.getW();
 		int n = ukp.getNum();
 		int[] V = new int[W+1];
@@ -158,7 +158,7 @@ public class UnboundedKnapsackDP {
 	 * @return a list with the number of copies of each object
 	 * @see OptimizeKnapsackTopDownRec
 	 */
-	private static List<Integer> OptimizeKnapsackTopDown(Knapsack ukp) {
+	public static List<Integer> OptimizeKnapsackTopDown(Knapsack ukp) {
 		int W = ukp.getW();
 		HashMap<Integer,Integer> V = new HashMap<Integer,Integer>();
 		HashMap<Integer,Integer> D = new HashMap<Integer,Integer>();

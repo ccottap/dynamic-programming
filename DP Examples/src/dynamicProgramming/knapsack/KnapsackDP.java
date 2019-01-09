@@ -78,7 +78,7 @@ public class KnapsackDP {
 	 * @param kp a 0-1 knapsack problem
 	 * @return a list with the number of copies of each object
 	 */
-	private static List<Integer> OptimizeKnapsack(Knapsack kp) {
+	public static List<Integer> OptimizeKnapsack(Knapsack kp) {
 		int W = kp.getW();
 		int n = kp.getNum();
 		int[][] V = new int[n+1][W+1];
@@ -155,7 +155,7 @@ public class KnapsackDP {
 	 * @param kp a knapsack problem instance
 	 * @return a list with the number of copies of each object
 	 */
-	private static List<Integer> OptimizeKnapsackTopDown(Knapsack kp) {
+	public static List<Integer> OptimizeKnapsackTopDown(Knapsack kp) {
 		int W = kp.getW();
 		int n = kp.getNum();
 		int[][] V = new int[n+1][W+1];

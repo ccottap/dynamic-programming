@@ -81,7 +81,7 @@ public class BoundedKnapsackDP {
 	 * @param bkp a bounded knapsack problem instance
 	 * @return a list with the number of copies of each object
 	 */
-	private static List<Integer> OptimizeKnapsack(BoundedKnapsack bkp) {
+	public static List<Integer> OptimizeKnapsack(BoundedKnapsack bkp) {
 		int W = bkp.getW();
 		int n = bkp.getNum();
 		int[][] V = new int[n+1][W+1];
@@ -163,7 +163,7 @@ public class BoundedKnapsackDP {
 	 * @param bkp a bounded knapsack problem instance
 	 * @return a list with the number of copies of each object
 	 */
-	private static List<Integer> OptimizeKnapsackTopDown(BoundedKnapsack bkp) {
+	public static List<Integer> OptimizeKnapsackTopDown(BoundedKnapsack bkp) {
 		int W = bkp.getW();
 		int n = bkp.getNum();
 		HashMap<Pair<Integer,Integer>,Integer> V = new HashMap<Pair<Integer,Integer>,Integer>();

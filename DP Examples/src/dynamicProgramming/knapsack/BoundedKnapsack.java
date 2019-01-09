@@ -71,9 +71,9 @@ public class BoundedKnapsack extends Knapsack {
 	}
 	
 	/**
-	 * {@inheritDoc}. Also allocates memory for the copies.
+	 * {@inheritDoc}. Also allocates memory for {@link BoundedKnapsack#copies}.
 	 * @param num the number of objects to set
-	 * {@link BoundedKnapsack#copies}
+	 * 
 	 */
 	public void setNum(int num) {
 		super.setNum(num);
@@ -84,7 +84,6 @@ public class BoundedKnapsack extends Knapsack {
 	 * Returns the number of copies of an object
 	 * @param i the index of the object
 	 * @return the copies of object i
-	 * {@link BoundedKnapsack#copies}
 	 */
 	public int getCopies(int i) {
 		return copies[i];
@@ -94,7 +93,6 @@ public class BoundedKnapsack extends Knapsack {
 	 * Sets the number of copies of an object
 	 * @param i the index of the object
 	 * @param c the number of copies
-	 * {@link BoundedKnapsack#copies}
 	 */
 	public void setCopies(int i, int c) {
 		copies[i] = c;

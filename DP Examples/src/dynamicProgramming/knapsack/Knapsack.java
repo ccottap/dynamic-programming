@@ -121,20 +121,17 @@ public class Knapsack {
 	
 	
 	/**
-	 * Returns the number of objects
+	 * Returns the number of objects {@link Knapsack#num}
 	 * @return the number of objects
-	 * {@link Knapsack#num}
 	 */
 	public int getNum() {
 		return num;
 	}
 
 	/**
-	 * Sets the number of objects (and alllcates memory accordingly)
+	 * Sets the number of objects {@link Knapsack#num} (and allocates memory accordingly
+	 * for {@link Knapsack#values} and {@link Knapsack#weights})
 	 * @param num the number of objects to set
-	 * {@link Knapsack#num}
-	 * {@link Knapsack#values}
-	 * {@link Knapsack#weights}
 	 */
 	public void setNum(int num) {
 		this.num = num;
@@ -146,7 +143,6 @@ public class Knapsack {
 	 * Returns the weight of an object
 	 * @param i the index of the object
 	 * @return the weight of the object
-	 * {@link Knapsack#weights}
 	 */
 	public int getWeight(int i) {
 		return weights[i];
@@ -156,7 +152,6 @@ public class Knapsack {
 	 * Sets the weight of an object
 	 * @param i the index of the object
 	 * @param w the weight to set
-	 * {@link Knapsack#weights}
 	 */
 	public void setWeight(int i, int w) {
 		weights[i] = w;
@@ -166,7 +161,6 @@ public class Knapsack {
 	 * Gets the value of an object
 	 * @param i the index of the object
 	 * @return the value of an object
-	 * {@link Knapsack#values}
 	 */
 	public int getValues(int i) {
 		return values[i];
@@ -176,25 +170,22 @@ public class Knapsack {
 	 * Sets the value of an object
 	 * @param i the index of an object
 	 * @param v the value to set
-	 * {@link Knapsack#values}
 	 */
 	public void setValues(int i, int v) {
 		values[i] = v;
 	}
 
 	/**
-	 * Gets the capacity of the knapsack
+	 * Gets the capacity {@link Knapsack#W} of the knapsack
 	 * @return the capacity of the knapsack
-	 * {@link Knapsack#W}
 	 */
 	public int getW() {
 		return W;
 	}
 
 	/**
-	 * Sets the capacity of the knapsack
-	 * @param w the capacity to set
-	 * {@link Knapsack#W}
+	 * Sets the capacity {@link Knapsack#W} of the knapsack
+	 * @param w the capacity of the knapsack
 	 */
 	public void setW(int w) {
 		W = w;
