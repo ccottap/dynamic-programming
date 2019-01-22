@@ -82,21 +82,37 @@ public class Gasolinera {
 	}
 
 
-	static double inf = Double.POSITIVE_INFINITY;
-
+	/**
+	 * infinity value
+	 */
+	private static double Infinity = Double.POSITIVE_INFINITY;
+	
+	/**
+	 * Computes the minimum fuel cost knowing how much fuel is consumed between gas stations,
+	 * the capacity of the tank and the cost of a liter of fuel in each gas station. Bottom-up
+	 * version.
+	 * @param consumo an array where each position i contains the fuel required for reaching gas station i from gas station i-1 
+	 * @param precio an array where each position i contains the cost of a liter of fuel in gas station i 
+	 * @param deposito the capacity of the tank
+	 * @param sol (output) an array with the optimal liters of fuel bought in each gas station 
+	 * @return the optimal cost
+	 */
 	private static double GastoMinimo(int[] consumo, double[] precio, int deposito, int[] sol) {
 		int n = consumo.length;
 		double[][] P = new double[n+1][deposito+1];
 		int[][] D = new int[n+1][deposito+1];
 		
-		for (int j=0; j<=deposito; j++) {
+		// P[i][j] = optimal cost for going from gas station i to n having j liters at the beginning
+		// D[i][j] = optimal liters of fuel bought in gas station i if j liters are already in the tank
+		
+		for (int j=0; j<=deposito; j++) {		// base case: destination reached
 			P[n][j] = 0;
 			D[n][j] = 0;
 		}
 		
-		for (int i=n-1; i>=0; i--)
+		for (int i=n-1; i>=0; i--)				// general case
 			for (int j=0; j<=deposito; j++) {
-				P[i][j] = inf;
+				P[i][j] = Infinity;
 				for (int k=Math.max(0, consumo[i]-j); k<=deposito-j; k++) {
 					double r = k*precio[i] + P[i+1][j+k-consumo[i]];
 					if (r < P[i][j]) {
@@ -128,12 +144,22 @@ public class Gasolinera {
 		return P[0][0];
 	}
 	
+	/**
+	 * Computes the minimum fuel cost knowing how much fuel is consumed between gas stations,
+	 * the capacity of the tank and the cost of a liter of fuel in each gas station. Top-down
+	 * version.
+	 * @param consumo an array where each position i contains the fuel required for reaching gas station i from gas station i-1 
+	 * @param precio an array where each position i contains the cost of a liter of fuel in gas station i 
+	 * @param deposito the capacity of the tank
+	 * @param sol (output) an array with the optimal liters of fuel bought in each gas station 
+	 * @return the optimal cost
+	 */
 	private static double GastoMinimoTopDown(int[] consumo, double[] precio, int deposito, int[] sol) {
 		int n = consumo.length;
 		double[][] P = new double[n+1][deposito+1];
 		int[][] D = new int[n+1][deposito+1];
 		
-		for (int i=0; i<=n; i++)
+		for (int i=0; i<=n; i++)				// mark all positions as "empty"
 			for (int j=0; j<=deposito; j++) 
 				P[i][j] = -1;
 		
@@ -166,7 +192,14 @@ public class Gasolinera {
 
 
 	
-
+	/**
+	 * Reconstruction of the optimal solution
+	 * @param consumo an array where each position i contains the fuel required for reaching gas station i from gas station i-1 
+	 * @param precio an array where each position i contains the cost of a liter of fuel in gas station i 
+	 * @param n number of gas stations
+	 * @param d decision matrix
+	 * @param sol optimal solution
+	 */
 	private static void ReconstruyeSolucionGastoOptimo(int[] consumo, double[] precio, int n, int[][] d, int[] sol) {
 		int j=0;	// combustible inicial
 		System.out.println("\nReconstrucción de la solución:");
@@ -179,7 +212,19 @@ public class Gasolinera {
 		System.out.format("depósito = %2dl\tg%d\n", j, n);
 
 	}
-
+	
+	/**
+	 * Auxiliary function for the top-down calculation of the optimal refueling strategy
+	 * @param consumo an array where each position i contains the fuel required for reaching gas station i from gas station i-1 
+	 * @param precio an array where each position i contains the cost of a liter of fuel in gas station i 
+	 * @param deposito the capacity of the tank
+	 * @param n number of gas stations
+	 * @param p table of optimal costs
+	 * @param d table of optimal decisions
+	 * @param i current gas station
+	 * @param j fuel currently in the tank
+	 * @return the optimal cost
+	 */
 	private static double GastoMinimoTopDownRec(int[] consumo, double[] precio, int deposito, int n, double[][] p, int[][] d,
 			int i, int j) {
 		
@@ -189,7 +234,7 @@ public class Gasolinera {
 				d[i][j] = 0;
 			}
 			else {
-				p[i][j] = inf;
+				p[i][j] = Infinity;
 				for (int k=Math.max(0, consumo[i]-j); k<=deposito-j; k++) {
 					double r = k*precio[i] + GastoMinimoTopDownRec(consumo, precio, deposito, n, p, d, i+1, j+k-consumo[i]);
 					if (r < p[i][j]) {
@@ -203,11 +248,22 @@ public class Gasolinera {
 		return p[i][j];
 	}
 
+	/**
+	 * Computes the optimal number of stops knowing how much fuel is consumed between 
+	 * gas stations, and the capacity of the tank 
+	 * @param consumo an array where each position i contains the fuel required for reaching gas station i from gas station i-1 
+	 * @param deposito the capacity of the tank
+	 * @param sol (output) an array where sol[i] != 0 indicates a stop at gas station i 
+	 * @return the optimal number of stops
+	 */
 	private static int ParadasMinimas(int[] consumo, int deposito, int[] sol) {
 		int n = consumo.length;
 		int[] P = new int[n];
 		int[] D = new int[n];
 		ArrayList<HashSet<Integer>> F = new ArrayList<HashSet<Integer>>();
+		
+		// P[i] = minimum number of stops from gas station i to the destination
+		// D[i] = next gas station in which to stop after gas station i
 		
 		System.out.println("Conjuntos de alcanzabilidad F_i = {gj | gj se puede alcanzar desde gi con depósito lleno}:");
 
