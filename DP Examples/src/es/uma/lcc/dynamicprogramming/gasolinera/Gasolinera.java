@@ -1,5 +1,5 @@
 
-package dynamicProgramming.gasolinera;
+package es.uma.lcc.dynamicprogramming.gasolinera;
 
 import java.util.ArrayList;
 import java.util.HashSet;

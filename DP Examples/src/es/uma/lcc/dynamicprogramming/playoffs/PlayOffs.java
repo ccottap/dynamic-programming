@@ -1,5 +1,5 @@
 
-package dynamicProgramming.playoffs;
+package es.uma.lcc.dynamicprogramming.playoffs;
 
 import java.util.Locale;
 

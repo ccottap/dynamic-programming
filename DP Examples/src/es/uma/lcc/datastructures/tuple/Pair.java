@@ -1,4 +1,4 @@
-package dataStructures.tuple;
+package es.uma.lcc.datastructures.tuple;
 
 import java.util.Objects;
 

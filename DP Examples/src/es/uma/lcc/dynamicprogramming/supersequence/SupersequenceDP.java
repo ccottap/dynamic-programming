@@ -1,5 +1,5 @@
 
-package dynamicProgramming.supersequence;
+package es.uma.lcc.dynamicprogramming.supersequence;
 
 import java.io.File;
 import java.io.FileNotFoundException;

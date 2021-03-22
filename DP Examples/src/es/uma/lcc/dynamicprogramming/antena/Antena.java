@@ -1,5 +1,5 @@
 
-package dynamicProgramming.antena;
+package es.uma.lcc.dynamicprogramming.antena;
 
 
 /**

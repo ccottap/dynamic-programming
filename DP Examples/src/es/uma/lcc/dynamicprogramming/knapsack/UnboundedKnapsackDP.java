@@ -1,5 +1,5 @@
 
-package dynamicProgramming.knapsack;
+package es.uma.lcc.dynamicprogramming.knapsack;
 
 import java.io.IOException;
 import java.util.ArrayList;

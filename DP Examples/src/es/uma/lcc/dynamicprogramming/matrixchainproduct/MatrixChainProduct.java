@@ -1,5 +1,5 @@
 
-package dynamicProgramming.matrixChainProduct;
+package es.uma.lcc.dynamicprogramming.matrixchainproduct;
 
 import java.io.File;
 import java.io.FileNotFoundException;

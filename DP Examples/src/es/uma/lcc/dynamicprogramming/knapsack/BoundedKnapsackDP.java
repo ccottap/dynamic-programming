@@ -1,12 +1,12 @@
 
-package dynamicProgramming.knapsack;
+package es.uma.lcc.dynamicprogramming.knapsack;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import dataStructures.tuple.Pair;
+import es.uma.lcc.datastructures.tuple.Pair;
 
 /**
  * Resolución del problema de la mochila acotada
