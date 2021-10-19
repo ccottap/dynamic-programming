@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Resolución del problema de la mochila 0-1
- * Sección 1.3, pp. 17
+ * Sección 1.3, pp. 17 (1ra ed.); pp. 18 (2da ed.)
  * @author ccottap
  *
  */

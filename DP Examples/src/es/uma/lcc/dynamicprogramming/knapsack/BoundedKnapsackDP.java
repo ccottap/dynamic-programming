@@ -10,7 +10,7 @@ import es.uma.lcc.datastructures.tuple.Pair;
 
 /**
  * Resolución del problema de la mochila acotada
- * Ejercicio 3, Sección 3.2, pp. 47-53
+ * Ejercicio 3, Sección 3.2, pp. 47-53 (1ra ed.); pp. 59-67 (2da ed.)
  * @author ccottap
  *
  */

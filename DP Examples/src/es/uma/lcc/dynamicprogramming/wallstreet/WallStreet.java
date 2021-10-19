@@ -3,7 +3,7 @@ package es.uma.lcc.dynamicprogramming.wallstreet;
 
 /**
  * Resolución del problema "El Inversor de Wall Street"
- * Ejercicio 22, sección 3.17, pp. 147-153
+ * Ejercicio 22, sección 3.17, pp. 147-153 (1ra ed.); pp. 175-180 (2da ed.)
  * @author ccottap
  *
  */

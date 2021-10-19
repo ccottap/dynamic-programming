@@ -1,5 +1,5 @@
 
-package es.uma.lcc.dynamicprogramming.gasolinera;
+package es.uma.lcc.dynamicprogramming.fuelstation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,11 +7,11 @@ import java.util.HashSet;
 
 /**
  * Resolución del problema de el coche de alquiler.
- * Ejercicio 23, sección 3.18, pp. 173-185
+ * Ejercicio 23, sección 3.18, pp. 173-185 (1ra ed.); pp. 180-192 (2da ed.) 
  * @author ccottap
  *
  */
-public class Gasolinera {
+public class FuelStation {
 
 	/**
 	 * Main function solving a problem instance

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * Shortest Common Supersequence Problem
- * Ejercicio 7, sección 3.5, pp. 64-69
+ * Ejercicio 7, sección 3.5, pp. 64-69 (1ra ed.); pp. 80-85 (2da ed.)
  * @author ccottap
  *
  */

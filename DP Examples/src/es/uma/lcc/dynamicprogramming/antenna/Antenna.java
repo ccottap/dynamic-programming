@@ -1,14 +1,14 @@
 
-package es.uma.lcc.dynamicprogramming.antena;
+package es.uma.lcc.dynamicprogramming.antenna;
 
 
 /**
  * Resolución del problema de la antena de telefonía
- * Ejercicio 12, Sección 3.8, pp. 82-90
+ * Ejercicio 12, Sección 3.8, pp. 82-90 (1ra ed.); pp. 101-110 (2da ed.)
  * @author ccottap
  *
  */
-public class Antena {
+public class Antenna {
 	/**
 	 * Main function solving a problem instance
 	 * @param args antenna height (optional)

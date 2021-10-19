@@ -5,7 +5,7 @@ import java.util.Locale;
 
 /**
  * Resolución del problema "Los playoffs de la Liga Mundial"
- * Ejercicio 17, sección 3.13, pp. 113-118
+ * Ejercicio 17, sección 3.13, pp. 113-118 (1ra ed.); pp. 135-140 (2da ed.)
  * @author ccottap
  *
  */
