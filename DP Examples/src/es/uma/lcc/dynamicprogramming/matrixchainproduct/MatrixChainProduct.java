@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 /**
  * Matrix Chain Product
- * Sección 3.21, pp. 201-208
+ * Sección 3.21, pp. 201-208 (1ra ed.); pp. 208-215 (2da ed.)
  * @author ccottap
  *
  */
